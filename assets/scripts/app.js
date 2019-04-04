@@ -9,7 +9,7 @@ const events = require('./game/events.js')
 
 $(() => {
   // your JS code goes here
-  $('#col-4').on('click', events.onPlacePieceX)
-    $('#col-4').on('click', events.onPlacePieceO)
-  // events.addHandler()
+  $('.col-4').on('click', events.onPlacePiece)
+  // $('#col-4').on('click', events.onTakenPiece)
+  // $('#col-4').on('click', events.onPlacePieceO)
 })
