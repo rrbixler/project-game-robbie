@@ -1,7 +1,7 @@
 
 const api = require('./api.js')
 const ui = require('./ui.js')
-
+const getFormFields = require('../../../lib/get-form-fields.js')
 // const onPlacePiece =
 // console.log(event)
 //   event.preventDefault()
@@ -128,9 +128,23 @@ const onScoreDisplay = function (event) {
 //   console.log('event.type is ', event.type)
 // })
 
+const onCreateBoard = function (event) {
+  event.preventDefault()
+  api.createGame()
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateError)
+}
+
+const onUpdateBoard = function (event) {
+  event.preventDefault()
+  api.updateGame()
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameError)
+}
+
 module.exports = {
   onPlacePiece,
-  onScoreDisplay
-  // onTakenPiece
-  // onStopPiece
+  onScoreDisplay,
+  onCreateBoard,
+  onUpdateBoard
 }

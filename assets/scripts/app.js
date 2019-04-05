@@ -21,6 +21,8 @@ $(() => {
   $('#eight').on('click', events.onScoreDisplay)
   $('#nine').on('click', events.onScoreDisplay)
   userEvents.addHandlers()
+  $('#reset-game').on('submit', events.onResetBoard)
+  $('#create-game').on('submit', events.onCreateBoard)
   // $('#col-4').on('click', events.onTakenPiece)
   // $('#col-4').on('click', events.onPlacePieceO)
 })
