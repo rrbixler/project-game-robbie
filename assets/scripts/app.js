@@ -11,6 +11,7 @@ const userEvents = require('./auth/events.js')
 $(() => {
   // your JS code goes here
   $('.col-4').on('click', events.onPlacePiece)
+  $('.col-4').on('click', events.changeTurn)
   $('#one').on('click', events.onScoreDisplay)
   $('#two').on('click', events.onScoreDisplay)
   $('#three').on('click', events.onScoreDisplay)

@@ -3,8 +3,17 @@ const store = require('../store.js')
 
 const placePiece = function (id) {
   return $.ajax({
-    url: config.apiUrl + `game/` + `${id}`,
-    method: 'PATCH'
+    url: config.apiUrl + `/games/` + `${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      id: `${id}`,
+      cells: ['', '', '', '', '', '', '', '', ''],
+      over: false,
+      user: ('../auth/api.js')
+    }
   })
 }
 // const updateGame = function (data) {
@@ -24,29 +33,39 @@ const createGame = function () {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      id: '',
+      cells: ['', '', '', '', '', '', '', '', ''],
+      over: false,
+      user: store.user.token
     }
   })
 }
 
-const updateGame = function () {
+const resetBoard = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'PATCH',
+    url: config.apiUrl + '/games' + data.games.id,
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: users
+    }
   })
 }
-// const updateBook = function (formData) {
+
+// const updateGame = function () {
 //   return $.ajax({
-//     url: config.apiUrl + `/books/` + formData.book.id,
+//     url: config.apiUrl + '/games',
 //     method: 'PATCH',
-//     data: formData
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: users
 //   })
 // }
+
 module.exports = {
   placePiece,
-  createGame
-  // resetBoard
+  createGame,
+  resetBoard
 }
