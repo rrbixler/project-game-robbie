@@ -7,13 +7,13 @@ const placePiece = function (id) {
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      id: `${id}`,
-      cells: ['', '', '', '', '', '', '', '', ''],
-      over: false,
-      user: ('../auth/api.js')
     }
+    // data: {
+    //   id: `${id}`,
+    //   cells: ['', '', '', '', '', '', '', '', ''],
+    //   over: false,
+    //   user: ('../auth/api.js')
+    // }
   })
 }
 // const updateGame = function (data) {
@@ -27,7 +27,7 @@ const placePiece = function (id) {
 //   })
 // }
 
-const createGame = function () {
+const createGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -36,36 +36,55 @@ const createGame = function () {
     },
     data: {
       id: '',
-      cells: ['', '', '', '', '', '', '', '', ''],
-      over: false,
+      cell: ['', '', '', '', '', '', '', '', ''],
+      over: '',
       user: store.user.token
+    }
+  })
+}
+// const cell = $(event.target).text()
+// store.cell = cell
+//
+// const index = $(event.target.id)
+// store.index = inde
+const updateGame = function (index, value, over) {
+  return $.ajax({
+    url: config.apiUrl + `/games/${store.game.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: store.gameIndex,
+          value: store.gameValue
+        },
+        over: store.gameEnd
+      }
     }
   })
 }
 
 const resetBoard = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games' + data.games.id,
-    method: 'POST',
+    url: config.apiUrl + `/games/${data.game.id}`,
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      id: '',
+      cell: ['', '', '', '', '', '', '', '', ''],
+      over: false,
+      user: store.user.token
     }
   })
 }
 
-// const updateGame = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/games',
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: users
-//   })
-// }
-
 module.exports = {
   placePiece,
   createGame,
-  resetBoard
+  resetBoard,
+  updateGame
 }

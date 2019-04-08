@@ -1,7 +1,9 @@
 const store = require('../store.js')
+// const events = require('./events.js')
 
-const placePieceSuccess = function () {
-  $('#col-4').text('x')
+const onPlacePieceSuccess = function (response) {
+  console.log('successfully placed piece to: ', response)
+  store.place = response.place
 }
 
 const onResetSuccess = function () {
@@ -23,18 +25,25 @@ const onCreateSuccess = function (response) {
   store.game = response.game
 }
 
-const onCreateError = function () {
-  console.log('didnt work')
+const onCreateError = function (data) {
+  console.log('didnt work', data)
 }
 
-const updateGameSuccess = function () {
-  // $('col-4').val().store.user.cell
+const updateGameSuccess = function (data) {
+  console.log('successfully updated game: ', data)
+  store.games = data.games
 }
+
+const updateGameFailure = function (data) {
+  console.log('did not work', data)
+}
+
 module.exports = {
-  placePieceSuccess,
+  onPlacePieceSuccess,
   onResetSuccess,
   onResetFailure,
   onCreateSuccess,
   onCreateError,
-  updateGameSuccess
+  updateGameSuccess,
+  updateGameFailure
 }

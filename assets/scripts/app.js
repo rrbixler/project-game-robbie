@@ -21,6 +21,8 @@ $(() => {
   $('#seven').on('click', events.onScoreDisplay)
   $('#eight').on('click', events.onScoreDisplay)
   $('#nine').on('click', events.onScoreDisplay)
+  $('.col-4').on('click', events.onUpdateGame)
+  $('.col-4').on('click', events.overToggle)
   userEvents.addHandlers()
   $('#reset-game').on('submit', events.onResetBoard)
   $('#create-game').on('submit', events.onCreateBoard)
