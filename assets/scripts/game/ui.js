@@ -6,16 +6,6 @@ const onPlacePieceSuccess = function (response) {
   store.place = response.place
 }
 
-const onResetSuccess = function () {
-  $('.col-4').text('')
-}
-
-const onResetFailure = function () {
-  // console.log('it broke')
-  // $('#message').text('Index Request Failed')
-  // $('#message').css('color', 'coral')
-}
-
 // const onCreateSuccess = function (apiResponse) {
 //   // $('#message').text('Congrats. Your book was created!')
 //   $('.col-4').val('')
@@ -38,12 +28,20 @@ const updateGameFailure = function (data) {
   console.log('did not work', data)
 }
 
+const onGetGamesSuccess = function (response) {
+  const count = response.games.length
+  $('.stats-display').text(`Youve played ${count} games!`)
+}
+const onGetGamesError = function (data) {
+  console.log('successfully updated game: ', data)
+  store.games = data.games
+}
 module.exports = {
   onPlacePieceSuccess,
-  onResetSuccess,
-  onResetFailure,
   onCreateSuccess,
   onCreateError,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  onGetGamesSuccess,
+  onGetGamesError
 }

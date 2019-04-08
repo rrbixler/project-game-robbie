@@ -21,32 +21,33 @@ const store = require('../store.js')
 //   firstMove = playerOne
 // }
 //
-
-
-let currentTurn = 'O'
+let gameOver = false
+let currentTurn = 'X'
 const changeTurn = function () {
-  if (currentTurn === 'O') {
-    currentTurn = 'X'
-  } else {
+  if (currentTurn === 'X') {
     currentTurn = 'O'
+  } else {
+    currentTurn = 'X'
   }
-  return currentTurn
 }
 
 const onPlacePiece = function (event) {
-  console.log('event.target is ', event.target)
-  if ($(event.target).text() === '') {
-    $(event.target).text(changeTurn())
-  } else {
-    $('.player-indicator').text('')
-  }
-  console.log('event target text is: ', $(event.target).text())
-  console.log('event target data cell index is: ', $(event.target).data('id'))
-
   const gameIndex = $(event.target).data('id')
-  store.gameIndex = gameIndex
   const gameValue = $(event.target).text()
-  store.gameValue = gameValue
+  // console.log('event.target is ', event.target)
+  if ($(event.target).text() === '') {
+    $(event.target).text(currentTurn)
+    onScoreDisplay()
+    api.updateGame(gameIndex, gameValue, gameOver)
+  } else {
+    console.log('invalid move')
+  }
+  // console.log('event target text is: ', $(event.target).text())
+  // console.log('event target data cell index is: ', $(event.target).data('id'))
+
+  // console.log('gameIndex, ', gameIndex)
+  // console.log('gameValue, ', gameValue)
+  // console.log('gameOver, ', gameOver)
 }
 
 //   const boxArrayIndex = $(event.target.id)
@@ -65,14 +66,12 @@ const onPlacePiece = function (event) {
 // const gameEnd = overToggle()
 // store.gameEnd = gameEnd
 
-let gameOver = false
-const onScoreDisplay = function (event) {
-  console.log('player chose square ', event.target)
+const onScoreDisplay = function () {
   if ($('#one').text() === 'X' && $('#two').text() === 'X' && $('#three').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-4').off('click', onPlacePiece)
-    $('.col-4').off('click', changeTurn)
+    // $('.col-4').off('click', changeTurn)
   } else if ($('#four').text() === 'X' && $('#five').text() === 'X' && $('#six').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
@@ -138,65 +137,44 @@ const onScoreDisplay = function (event) {
     gameOver = true
     $('.col-4').off('click', onPlacePiece)
   } else {
-    $('.score-display').text('')
+    changeTurn()
   }
-  const gameEnd = gameOver
-  store.gameEnd = gameEnd
+  // const gameEnd = gameOver
+  // store.gameEnd = gameEnd
 }
 
-// store.gameOver = gameOver
-// let gameOver = false
-// const gameStatus = function () {
-//   if ($('.score-display').text() !== '') {
-//     gameOver = !gameOver
-//   }
-//   store.gameOver = gameStatus()
-// }
-// console.log(gameStatus())
-
-// const onStopPiece = $('.col-4').on('click', function (event) {
-//   console.log('event.target is ', event.target)
-//   return $(event.target)
-// })
-// $('.col-4').on('click', function (event) {
-//   console.log('event.type is ', event.type)
-// })
+const newVariables = function () {
+  currentTurn = 'X'
+  gameOver = false
+  $('.col-4').empty()
+  $('.score-display').empty()
+  // store.gameEnd = gameOver
+  // $('.col-4').on('click', onPlacePiece)
+  // $('.col-4').empty()
+  // $('.col-4').on('click', changeTurn)
+  // $('.col-4').on('click', changeTurn)
+}
 
 const onCreateBoard = function (event) {
   event.preventDefault()
+  newVariables()
+  console.log(gameOver)
+  $('.col-4').on('click', onPlacePiece)
   api.createGame()
-  // $('.col-4').on('click', onPlacePiece, currentTurn)
     .then(ui.onCreateSuccess)
     .catch(ui.onCreateError)
 }
 
-const onUpdateGame = function (event) {
-  event.preventDefault()
-  api.updateGame()
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameError)
+const onGetGames = function (response) {
+  api.getGames()
+    .then(ui.onGetGamesSuccess)
+    .catch(ui.onGetGamesError)
 }
-
-const onResetBoard = function (event) {
-  event.preventDefault()
-  $('.col-4').text('')
-  $('.score-display').text('')
-  $('.player-indicator').text('')
-  api.resetBoard()
-  // $('.col-4').on('click', onPlacePiece, currentTurn)
-    .then(ui.onCreateSuccess)
-    .catch(ui.onCreateError)
-}
-//   $('.col-4').on('click', onPlacePiece)
-//   $('.col-4').on('click', changeTurn)
-// }
-
 module.exports = {
   onPlacePiece,
   onScoreDisplay,
   onCreateBoard,
-  onUpdateGame,
-  onResetBoard,
-  gameOver
+  gameOver,
+  onGetGames
   // onEndGame
 }

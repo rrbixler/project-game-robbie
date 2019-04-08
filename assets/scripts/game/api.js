@@ -8,38 +8,18 @@ const placePiece = function (id) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-    // data: {
-    //   id: `${id}`,
-    //   cells: ['', '', '', '', '', '', '', '', ''],
-    //   over: false,
-    //   user: ('../auth/api.js')
-    // }
+
   })
 }
-// const updateGame = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + `/game/` + data.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
 
-const createGame = function (data) {
+const createGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {
-      id: '',
-      cell: ['', '', '', '', '', '', '', '', ''],
-      over: '',
-      user: store.user.token
-    }
+    data: ''
   })
 }
 // const cell = $(event.target).text()
@@ -57,10 +37,10 @@ const updateGame = function (index, value, over) {
     data: {
       game: {
         cell: {
-          index: store.gameIndex,
-          value: store.gameValue
+          index: index,
+          value: value
         },
-        over: store.gameEnd
+        over: over
       }
     }
   })
@@ -68,7 +48,7 @@ const updateGame = function (index, value, over) {
 
 const resetBoard = function (data) {
   return $.ajax({
-    url: config.apiUrl + `/games/${data.game.id}`,
+    url: config.apiUrl + `/games`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -76,15 +56,25 @@ const resetBoard = function (data) {
     data: {
       id: '',
       cell: ['', '', '', '', '', '', '', '', ''],
-      over: false,
+      over: '',
       user: store.user.token
     }
   })
 }
 
+const getGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   placePiece,
   createGame,
   resetBoard,
-  updateGame
+  updateGame,
+  getGames
 }
