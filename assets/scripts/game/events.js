@@ -13,7 +13,6 @@ const changeTurn = function () {
 }
 
 const onPlacePiece = function (event) {
-  // console.log('event.target is ', event.target)
   if ($(event.target).text() === '') {
     $(event.target).text(currentTurn)
     onScoreDisplay()
@@ -23,8 +22,6 @@ const onPlacePiece = function (event) {
     api.updateGame(gameIndex, gameValue, gameOver)
       .then(ui.updateGameSuccess)
       .catch(ui.updateGameFailure)
-  } else {
-    console.log('invalid move')
   }
 }
 
@@ -113,7 +110,6 @@ const newVariables = function () {
 const onCreateBoard = function (event) {
   event.preventDefault()
   newVariables()
-  console.log(gameOver)
   $('.col-3').on('click', onPlacePiece)
   api.createGame()
     .then(ui.onCreateSuccess)
