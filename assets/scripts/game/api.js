@@ -22,11 +22,7 @@ const createGame = function () {
     data: ''
   })
 }
-// const cell = $(event.target).text()
-// store.cell = cell
-//
-// const index = $(event.target.id)
-// store.index = inde
+
 const updateGame = function (index, value, over) {
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,
