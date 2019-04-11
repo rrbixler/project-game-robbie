@@ -20,10 +20,10 @@ const updateGameError = function (data) {
 
 const onGetGamesSuccess = function (response) {
   const count = response.games.length
-  $('.stats-display').text(`Youve played ${count} games!`).show()
+  $('.stats-display').text(`you've played ${count} games!`).show()
   setTimeout(() => {
     $('.stats-display').text('').hide()
-  }, 3000)
+  }, 2000)
 }
 
 const onGetGamesError = function (data) {

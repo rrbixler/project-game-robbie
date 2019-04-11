@@ -13,7 +13,7 @@ const signUpFailure = function (data) {
 
 const signInSuccess = function (data) {
   $('form').trigger('reset')
-  $('.col-3').show()
+  // $('.col-3').show()
   $('.col-3').empty()
   $('#change-password').show()
   $('#sign-out').show()
@@ -28,7 +28,10 @@ const signInSuccess = function (data) {
   $('.score-display').empty()
   $('.stats-display').empty()
   $('.player-indicator').empty()
-  $('.messages').text(`Welcome! click create game to start!`)
+  $('.messages').text(`welcome! click new game to begin`).show()
+  setTimeout(() => {
+    $('.messages').text(' ').hide()
+  }, 2000)
 }
 
 const signInFailure = function (data) {
@@ -38,12 +41,18 @@ const signInFailure = function (data) {
 
 const changePasswordSuccess = function (data) {
   $('form').trigger('reset')
-  $('.messages').text(`change-password success!`)
+  $('.messages').text(`change password success!`).show()
+  setTimeout(() => {
+    $('.messages').text(' ').hide()
+  }, 2000)
 }
 
 const changePasswordFailure = function (data) {
   $('form').trigger('reset')
-  $('.messages').text(`Passwords dont match :/ `)
+  $('.messages').text(`change password error`).show()
+  setTimeout(() => {
+    $('.messages').text(' ').hide()
+  }, 2000)
 }
 
 const signOutSuccess = function () {
@@ -58,7 +67,11 @@ const signOutSuccess = function () {
   $('.score-display').hide()
   $('.stats-display').hide()
   $('.player-indicator').hide()
-  $('.messages').text(`see you next time!`)
+  $('.container').hide()
+  $('.messages').text(`see you next time!`).show()
+  setTimeout(() => {
+    $('.messages').text(' ').hide()
+  }, 2000)
 }
 
 const signOutFailure = function () {

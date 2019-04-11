@@ -131,6 +131,7 @@ const onCreateBoard = function (event) {
   $('.messages').empty()
   $('.player-indicator').show()
   $('.container').show()
+  $('.col-3').show()
   $('.stats-display').show()
   api.createGame()
     .then(ui.onCreateSuccess)
