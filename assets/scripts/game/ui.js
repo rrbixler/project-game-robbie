@@ -5,7 +5,6 @@ const onPlacePieceSuccess = function (response) {
 }
 
 const onCreateSuccess = function (response) {
-  $('.container').show()
   store.game = response.game
 }
 
@@ -21,7 +20,10 @@ const updateGameError = function (data) {
 
 const onGetGamesSuccess = function (response) {
   const count = response.games.length
-  $('.stats-display').text(`Youve played ${count} games!`)
+  $('.stats-display').text(`Youve played ${count} games!`).show()
+  setTimeout(() => {
+    $('.stats-display').text('').hide()
+  }, 3000)
 }
 
 const onGetGamesError = function (data) {

@@ -30,70 +30,87 @@ const onScoreDisplay = function () {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#four').text() === 'X' && $('#five').text() === 'X' && $('#six').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#seven').text() === 'X' && $('#eight').text() === 'X' && $('#nine').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#one').text() === 'X' && $('#four').text() === 'X' && $('#seven').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#two').text() === 'X' && $('#five').text() === 'X' && $('#eight').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#three').text() === 'X' && $('#six').text() === 'X' && $('#nine').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#one').text() === 'X' && $('#five').text() === 'X' && $('#nine').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#three').text() === 'X' && $('#five').text() === 'X' && $('#seven').text() === 'X') {
     $('.score-display').text('X wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#one').text() === 'O' && $('#two').text() === 'O' && $('#three').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#four').text() === 'O' && $('#five').text() === 'O' && $('#six').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#seven').text() === 'O' && $('#eight').text() === 'O' && $('#nine').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#one').text() === 'O' && $('#four').text() === 'O' && $('#seven').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#two').text() === 'O' && $('#five').text() === 'O' && $('#eight').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#three').text() === 'O' && $('#six').text() === 'O' && $('#nine').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#one').text() === 'O' && $('#five').text() === 'O' && $('#nine').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#three').text() === 'O' && $('#five').text() === 'O' && $('#seven').text() === 'O') {
     $('.score-display').text('O wins!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else if ($('#one').text() !== '' && $('#two').text() !== '' && $('#three').text() !== '' && $('#four').text() !== '' && $('#five').text() !== '' && $('#six').text() !== '' && $('#seven').text() !== '' && $('#eight').text() !== '' && $('#nine').text() !== '') {
     $('.score-display').text('Draw!')
     gameOver = true
     $('.col-3').off('click', onPlacePiece)
+    $('.player-indicator').hide()
   } else {
     changeTurn()
   }
@@ -111,12 +128,18 @@ const onCreateBoard = function (event) {
   event.preventDefault()
   newVariables()
   $('.col-3').on('click', onPlacePiece)
+  $('.messages').empty()
+  $('.player-indicator').show()
+  $('.container').show()
+  $('.stats-display').show()
   api.createGame()
     .then(ui.onCreateSuccess)
     .catch(ui.onCreateError)
 }
 
 const onGetGames = function (response) {
+  $('.score-display').empty()
+  $('.player-indicator').empty()
   api.getGames()
     .then(ui.onGetGamesSuccess)
     .catch(ui.onGetGamesError)
