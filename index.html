@@ -15,12 +15,44 @@
 
       <h1>tic tac toe</h1>
       <div class="messages"></div>
+
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  sign up here
+</button>
+<!-- change color of button from blue to gray  -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">sign in to play</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="messages"></div>
         <form id="sign-up">
           <input type="email" name="credentials[email]" placeholder="email" required>
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
           <input type="submit" value="sign up">
         </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" >close</button> -->
+        <button type="button" class="btn btn-primary" data-dismiss="modal">go to sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- <form id="sign-up">
+          <input type="email" name="credentials[email]" placeholder="email" required>
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
+          <input type="submit" value="sign up">
+        </form> -->
         <form id="sign-in">
           <input type="email" name="credentials[email]" placeholder="email" required>
           <input type="password" name="credentials[password]" placeholder="password">
@@ -66,6 +98,9 @@
             <button id="reset-game">Reset Game</button> -->
             <!-- <form id="create-game"> -->
             <!-- </form> -->
+
+<!--use this for email and sign on  -->
+
 
     </body>
 </html>

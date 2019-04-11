@@ -3,12 +3,18 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   $('form').trigger('reset')
-  $('.messages').text(`all signed up! sign in to play!`)
+  $('.messages').text(`all signed up! sign in to play!`).show()
+  setTimeout(() => {
+    $('.messages').text('').hide()
+  }, 2000)
 }
 
 const signUpFailure = function (data) {
   $('form').trigger('reset')
-  $('.messages').text(`something went wrong, try to sign up again!`)
+  $('.messages').text(`something went wrong, try to sign up again!`).show()
+  setTimeout(() => {
+    $('.messages').text('').hide()
+  }, 2000)
 }
 
 const signInSuccess = function (data) {
@@ -30,20 +36,23 @@ const signInSuccess = function (data) {
   $('.player-indicator').empty()
   $('.messages').text(`welcome! click new game to begin`).show()
   setTimeout(() => {
-    $('.messages').text(' ').hide()
+    $('.messages').text('').hide()
   }, 2000)
 }
 
 const signInFailure = function (data) {
   $('form').trigger('reset')
-  $('.messages').text(`oops! somethings wrong try again`)
+  $('.messages').text(`oops! somethings wrong try again`).show()
+  setTimeout(() => {
+    $('.messages').text('').hide()
+  }, 2000)
 }
 
 const changePasswordSuccess = function (data) {
   $('form').trigger('reset')
   $('.messages').text(`change password success!`).show()
   setTimeout(() => {
-    $('.messages').text(' ').hide()
+    $('.messages').text('').hide()
   }, 2000)
 }
 
@@ -51,7 +60,7 @@ const changePasswordFailure = function (data) {
   $('form').trigger('reset')
   $('.messages').text(`change password error`).show()
   setTimeout(() => {
-    $('.messages').text(' ').hide()
+    $('.messages').text('').hide()
   }, 2000)
 }
 
@@ -76,7 +85,10 @@ const signOutSuccess = function () {
 
 const signOutFailure = function () {
   $('form').trigger('reset')
-  $('.messages').text(`somethings not working right`)
+  $('.messages').text(`somethings not working right`).show()
+  setTimeout(() => {
+    $('.messages').text(' ').hide()
+  }, 2000)
 }
 
 module.exports = {

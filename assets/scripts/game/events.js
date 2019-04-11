@@ -24,98 +24,69 @@ const onPlacePiece = function (event) {
       .catch(ui.updateGameFailure)
   }
 }
-
+// functions that define what happens when the game is over
+// when x is the winner of the game
+const endGameX = function () {
+  $('.score-display').text('X wins!')
+  gameOver = true
+  $('.col-3').off('click', onPlacePiece)
+  $('.player-indicator').hide()
+}
+// when o is the winner of the game
+const endGameO = function () {
+  $('.score-display').text('X wins!')
+  gameOver = true
+  $('.col-3').off('click', onPlacePiece)
+  $('.player-indicator').hide()
+}
+// when no one wins the game and it results in a draw
+const endGameDraw = function () {
+  $('.score-display').text('draw!')
+  gameOver = true
+  $('.col-3').off('click', onPlacePiece)
+  $('.player-indicator').hide()
+}
+// winning combinations function
 const onScoreDisplay = function () {
-  if ($('#one').text() === 'X' && $('#two').text() === 'X' && $('#three').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+  if (($('#one').text() && $('#two').text() && $('#three').text()) === 'X') {
+    endGameX()
   } else if ($('#four').text() === 'X' && $('#five').text() === 'X' && $('#six').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#seven').text() === 'X' && $('#eight').text() === 'X' && $('#nine').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#one').text() === 'X' && $('#four').text() === 'X' && $('#seven').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#two').text() === 'X' && $('#five').text() === 'X' && $('#eight').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#three').text() === 'X' && $('#six').text() === 'X' && $('#nine').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#one').text() === 'X' && $('#five').text() === 'X' && $('#nine').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#three').text() === 'X' && $('#five').text() === 'X' && $('#seven').text() === 'X') {
-    $('.score-display').text('X wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameX()
   } else if ($('#one').text() === 'O' && $('#two').text() === 'O' && $('#three').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#four').text() === 'O' && $('#five').text() === 'O' && $('#six').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#seven').text() === 'O' && $('#eight').text() === 'O' && $('#nine').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#one').text() === 'O' && $('#four').text() === 'O' && $('#seven').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#two').text() === 'O' && $('#five').text() === 'O' && $('#eight').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#three').text() === 'O' && $('#six').text() === 'O' && $('#nine').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#one').text() === 'O' && $('#five').text() === 'O' && $('#nine').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#three').text() === 'O' && $('#five').text() === 'O' && $('#seven').text() === 'O') {
-    $('.score-display').text('O wins!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameO()
   } else if ($('#one').text() !== '' && $('#two').text() !== '' && $('#three').text() !== '' && $('#four').text() !== '' && $('#five').text() !== '' && $('#six').text() !== '' && $('#seven').text() !== '' && $('#eight').text() !== '' && $('#nine').text() !== '') {
-    $('.score-display').text('Draw!')
-    gameOver = true
-    $('.col-3').off('click', onPlacePiece)
-    $('.player-indicator').hide()
+    endGameDraw()
   } else {
     changeTurn()
   }
 }
-
+// function passed into the function oncreateboard.  these things all happen on that same click event
 const newVariables = function () {
   currentTurn = 'X'
   gameOver = false
@@ -123,7 +94,7 @@ const newVariables = function () {
   $('.score-display').empty()
   $('.player-indicator').empty()
 }
-
+// function that runs on the click event for the new game button
 const onCreateBoard = function (event) {
   event.preventDefault()
   newVariables()
