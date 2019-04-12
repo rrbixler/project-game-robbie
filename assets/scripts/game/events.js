@@ -37,7 +37,7 @@ const onPlacePiece = function (event) {
     const gameValue = $(event.target).text()
     // then this information will be inserted into the function fmor the api folder
     // which is called below, and passed the parameters that will be inserted fomr this folder
-    // into the api folder and passed through that same function defined here
+    //into the api folder
     // folder to be stored, where the value of gameover will be assessed
     api.updateGame(gameIndex, gameValue, gameOver)
       .then(ui.updateGameSuccess)
@@ -70,37 +70,37 @@ const endGameDraw = function () {
 const onScoreDisplay = function () {
   if (($('#one').text() && $('#two').text() && $('#three').text()) === 'X') {
     endGameX()
-  } else if (($('#four').text() && $('#five').text() && $('#six').text()) === 'X') {
+  } else if ($('#four').text() === 'X' && $('#five').text() === 'X' && $('#six').text() === 'X') {
     endGameX()
-  } else if (($('#seven').text() && $('#eight').text() && $('#nine').text()) === 'X') {
+  } else if ($('#seven').text() === 'X' && $('#eight').text() === 'X' && $('#nine').text() === 'X') {
     endGameX()
-  } else if (($('#one').text() && $('#four').text() && $('#seven').text()) === 'X') {
+  } else if ($('#one').text() === 'X' && $('#four').text() === 'X' && $('#seven').text() === 'X') {
     endGameX()
-  } else if (($('#two').text() && $('#five').text() && $('#eight').text()) === 'X') {
+  } else if ($('#two').text() === 'X' && $('#five').text() === 'X' && $('#eight').text() === 'X') {
     endGameX()
-  } else if (($('#three').text() && $('#six').text() && $('#nine').text()) === 'X') {
+  } else if ($('#three').text() === 'X' && $('#six').text() === 'X' && $('#nine').text() === 'X') {
     endGameX()
-  } else if (($('#one').text() && $('#five').text() && $('#nine').text()) === 'X') {
+  } else if ($('#one').text() === 'X' && $('#five').text() === 'X' && $('#nine').text() === 'X') {
     endGameX()
-  } else if (($('#three').text() && $('#five').text() && $('#seven').text()) === 'X') {
+  } else if ($('#three').text() === 'X' && $('#five').text() === 'X' && $('#seven').text() === 'X') {
     endGameX()
-  } else if (($('#one').text() && $('#two').text() && $('#three').text()) === 'O') {
+  } else if ($('#one').text() === 'O' && $('#two').text() === 'O' && $('#three').text() === 'O') {
     endGameO()
-  } else if (($('#four').text() && $('#five').text() && $('#six').text()) === 'O') {
+  } else if ($('#four').text() === 'O' && $('#five').text() === 'O' && $('#six').text() === 'O') {
     endGameO()
-  } else if (($('#seven').text() && $('#eight').text() && $('#nine').text()) === 'O') {
+  } else if ($('#seven').text() === 'O' && $('#eight').text() === 'O' && $('#nine').text() === 'O') {
     endGameO()
-  } else if (($('#one').text() && $('#four').text() && $('#seven').text()) === 'O') {
+  } else if ($('#one').text() === 'O' && $('#four').text() === 'O' && $('#seven').text() === 'O') {
     endGameO()
-  } else if (($('#two').text() && $('#five').text() && $('#eight').text()) === 'O') {
+  } else if ($('#two').text() === 'O' && $('#five').text() === 'O' && $('#eight').text() === 'O') {
     endGameO()
-  } else if (($('#three').text() && $('#six').text() && $('#nine').text()) === 'O') {
+  } else if ($('#three').text() === 'O' && $('#six').text() === 'O' && $('#nine').text() === 'O') {
     endGameO()
-  } else if (($('#one').text() && $('#five').text() && $('#nine').text()) === 'O') {
+  } else if ($('#one').text() === 'O' && $('#five').text() === 'O' && $('#nine').text() === 'O') {
     endGameO()
-  } else if (($('#three').text() && $('#five').text() && $('#seven').text()) === 'O') {
+  } else if ($('#three').text() === 'O' && $('#five').text() === 'O' && $('#seven').text() === 'O') {
     endGameO()
-  } else if (($('#one').text() && $('#two').text() && $('#three').text() && $('#four').text() && $('#five').text() && $('#six').text() && $('#seven').text() && $('#eight').text() && $('#nine').text()) !== '') {
+  } else if ($('#one').text() !== '' && $('#two').text() !== '' && $('#three').text() !== '' && $('#four').text() !== '' && $('#five').text() !== '' && $('#six').text() !== '' && $('#seven').text() !== '' && $('#eight').text() !== '' && $('#nine').text() !== '') {
     endGameDraw()
   } else {
     changeTurn()
@@ -128,7 +128,7 @@ const onCreateBoard = function (event) {
     .then(ui.onCreateSuccess)
     .catch(ui.onCreateError)
 }
-// function that funs when clicking on get games button
+//function that funs when clicking on get games button
 const onGetGames = function (response) {
   $('.score-display').empty()
   $('.player-indicator').empty()
