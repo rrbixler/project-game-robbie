@@ -17,12 +17,17 @@
       <div class="messages"></div>
 
       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   sign up here
-</button>
+</button> -->
+
+
 <!-- change color of button from blue to gray  -->
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -32,21 +37,24 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class="messages"></div>
+          <div class="messages"></div> -->
         <form id="sign-up">
           <input type="email" name="credentials[email]" placeholder="email" required>
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
           <input type="submit" value="sign up">
         </form>
-      </div>
+      <!-- </div>
       <div class="modal-footer">
+
         <!-- <button type="button" class="btn btn-secondary" >close</button> -->
-        <button type="button" class="btn btn-primary" data-dismiss="modal">go to sign in</button>
+
+        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">go to sign in</button>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
         <!-- <form id="sign-up">
           <input type="email" name="credentials[email]" placeholder="email" required>
           <input type="password" name="credentials[password]" placeholder="password">
@@ -77,21 +85,21 @@
 
         <h3 class="player-indicator"></h3>
 
-          <div class="container">
+          <div class="container gameboard">
             <div class="row">
-              <div class="col-3" id="one" data-id='0'></div>
-              <div class="col-3" id="two" data-id='1'></div>
-              <div class="col-3" id="three" data-id='2'></div>
+              <div class="col-3 gamebox row1" id="one" data-id='0'></div>
+              <div class="col-3 gamebox row1" id="two" data-id='1'></div>
+              <div class="col-3 gamebox row1" id="three" data-id='2'></div>
             </div>
             <div class="row">
-              <div class="col-3" id="four" data-id='3'></div>
-              <div class="col-3" id="five" data-id='4'></div>
-              <div class="col-3" id="six" data-id='5'></div>
+              <div class="col-3 gamebox row2" id="four" data-id='3'></div>
+              <div class="col-3 gamebox row2" id="five" data-id='4'></div>
+              <div class="col-3 gamebox row2" id="six" data-id='5'></div>
             </div>
             <div class="row">
-              <div class="col-3" id="seven" data-id='6'></div>
-              <div class="col-3" id="eight" data-id='7'></div>
-              <div class="col-3" id="nine" data-id='8'></div>
+              <div class="col-3 gamebox" id="seven" data-id='6'></div>
+              <div class="col-3 gamebox" id="eight" data-id='7'></div>
+              <div class="col-3 gamebox" id="nine" data-id='8'></div>
             </div>
           </div>
           <!-- <h2>Reset Game!</h2>

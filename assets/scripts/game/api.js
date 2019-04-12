@@ -23,6 +23,8 @@ const createGame = function () {
   })
 }
 
+// this is the patch method that updates the game board as it is played. it takes 3 parameters
+// as indicated by the variables declared in thegame events.js folder
 const updateGame = function (index, value, over) {
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,

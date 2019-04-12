@@ -38,6 +38,7 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+// handlers for initial website display
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)

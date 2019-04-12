@@ -12,6 +12,7 @@ const onCreateError = function (data) {
 }
 
 const updateGameSuccess = function (data) {
+  // this stores each step of the game into the store folder, for easy access in toher parts of this folder
   store.games = data.games
 }
 
