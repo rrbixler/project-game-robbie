@@ -37,7 +37,7 @@ const onPlacePiece = function (event) {
     const gameValue = $(event.target).text()
     // then this information will be inserted into the function fmor the api folder
     // which is called below, and passed the parameters that will be inserted fomr this folder
-    //into the api folder
+    // into the api folder
     // folder to be stored, where the value of gameover will be assessed
     api.updateGame(gameIndex, gameValue, gameOver)
       .then(ui.updateGameSuccess)
@@ -54,7 +54,7 @@ const endGameX = function () {
 }
 // when o is the winner of the game
 const endGameO = function () {
-  $('.score-display').text('X wins!')
+  $('.score-display').text('O wins!')
   gameOver = true
   $('.col-3').off('click', onPlacePiece)
   $('.player-indicator').hide()
@@ -68,7 +68,7 @@ const endGameDraw = function () {
 }
 // winning combinations function
 const onScoreDisplay = function () {
-  if (($('#one').text() && $('#two').text() && $('#three').text()) === 'X') {
+  if ($('#one').text() === 'X' && $('#two').text() === 'X' && $('#three').text() === 'X') {
     endGameX()
   } else if ($('#four').text() === 'X' && $('#five').text() === 'X' && $('#six').text() === 'X') {
     endGameX()

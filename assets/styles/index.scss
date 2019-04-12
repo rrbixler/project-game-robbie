@@ -2,10 +2,12 @@
 body {
   background-color: darkSlateGray;
 }
+
 h1{
   color: antiqueWhite;
   text-shadow: 2px 2px rgba(0, 0, 0, .25);
 }
+
 .col-3 {
   // border: 2px solid black;
   // border-bottom: 1px solid black;
@@ -20,7 +22,7 @@ h1{
     border-right: 0;
   }
   // &:nth-child(n-3) {
-    // border-bottom: 0;
+  // border-bottom: 0;
   // }
 }
 
