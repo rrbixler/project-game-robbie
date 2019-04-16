@@ -47,21 +47,36 @@ const onPlacePiece = function (event) {
 // functions that define what happens when the game is over
 // when x is the winner of the game
 const endGameX = function () {
-  $('.score-display').text('X wins! click \'new game\' to keep playing')
+  $('.score-display').text('X wins! click \'new game\' to keep playing').show()
+  setTimeout(() => {
+    $('.score-display').text('').hide()
+    $('.col-3').empty()
+    $('.container').hide()
+  }, 2000)
   gameOver = true
   $('.col-3').off('click', onPlacePiece)
   $('.player-indicator').hide()
 }
 // when o is the winner of the game
 const endGameO = function () {
-  $('.score-display').text('O wins! click \'new game\' to keep playing')
+  $('.score-display').text('O wins! click \'new game\' to keep playing').show()
+  setTimeout(() => {
+    $('.score-display').text('').hide()
+    $('.col-3').empty()
+    $('.container').hide()
+  }, 2000)
   gameOver = true
   $('.col-3').off('click', onPlacePiece)
   $('.player-indicator').hide()
 }
 // when no one wins the game and it results in a draw
 const endGameDraw = function () {
-  $('.score-display').text('draw! click \'new game\' to keep playing')
+  $('.score-display').text('draw! click \'new game\' to keep playing').show()
+  setTimeout(() => {
+    $('.score-display').text('').hide()
+    $('.col-3').empty()
+    $('.container').hide()
+  }, 2000)
   gameOver = true
   $('.col-3').off('click', onPlacePiece)
   $('.player-indicator').hide()

@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+
 body {
   background-color: darkSlateGray;
+  font-family: 'Heebo', sans-serif;
 }
 
 h1{
@@ -13,8 +15,8 @@ h1{
   // border-bottom: 1px solid black;
   border-right: 5px solid antiqueWhite;
   color: antiqueWhite;
-  font-size: 40px;
-  height: 100px;
+  font-size: 50px;
+  height: 120px;
   justify-content: center;
   text-align: center;
   text-shadow: 2px 2px rgba(0, 0, 0, .25);
