@@ -81,6 +81,7 @@ const endGameDraw = function () {
   $('.col-3').off('click', onPlacePiece)
   $('.player-indicator').hide()
 }
+
 // winning combinations function
 const onScoreDisplay = function () {
   if ($('#one').text() === 'X' && $('#two').text() === 'X' && $('#three').text() === 'X') {
@@ -143,7 +144,7 @@ const onCreateBoard = function (event) {
     .then(ui.onCreateSuccess)
     .catch(ui.onCreateError)
 }
-//function that funs when clicking on get games button
+// function that funs when clicking on get games button
 const onGetGames = function (response) {
   $('.score-display').empty()
   $('.player-indicator').empty()

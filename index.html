@@ -12,72 +12,55 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">
+    <h1>tic tac toe</h1>
+  </a>
 
-      <h1>tic tac toe</h1>
+<li class="nav-item">
+  <div class="form-inline">
+    <form id="sign-in">
+      <input type="email" class="form-control" name="credentials[email]" placeholder="email" required>
+      <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+      <input type="submit" class="btn btn-outline-warning" value="sign in">
+    </form>
+  </div>
+</li>
+
+<li class="nav-item mr">
+  <div class="form-inline">
+    <form id="sign-up">
+      <input type="email" class="form-control" name="credentials[email]" placeholder="email" required>
+      <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+      <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="password confirmation">
+      <input class="btn btn-outline-warning" type="submit" value="sign up">
+    </form>
+  </div>
+</li>
+
+<li class="nav-item">
+  <div class="form-inline">
+    <form id="change-password">
+      <input type="password" class="form-control" name="passwords[old]" placeholder="oldpassword">
+      <input type="password" class="form-control" name="passwords[new]" placeholder="newpassword">
+      <input type="submit" class="btn btn-outline-warning" value="change password">
+    </form>
+  </div>
+</li>
+
+<li class="nav-item">
+  <form id="sign-out">
+    <input type="submit" class="btn btn-outline-secondary mr-auto" value="sign out">
+  </form>
+</li>
+</nav>
       <div class="messages"></div>
 
-      <!-- Button trigger modal -->
 
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  sign up here
-</button> -->
-
-
-<!-- change color of button from blue to gray  -->
-<!-- Modal -->
-
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">sign in to play</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="messages"></div> -->
-        <form id="sign-up">
-          <input type="email" name="credentials[email]" placeholder="email" required>
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
-          <input type="submit" value="sign up">
-        </form>
-      <!-- </div>
-      <div class="modal-footer">
-
-        <!-- <button type="button" class="btn btn-secondary" >close</button> -->
-
-        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">go to sign in</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-        <!-- <form id="sign-up">
-          <input type="email" name="credentials[email]" placeholder="email" required>
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
-          <input type="submit" value="sign up">
-        </form> -->
-        <form id="sign-in">
-          <input type="email" name="credentials[email]" placeholder="email" required>
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="submit" value="sign in">
-        </form>
-        <form id="change-password">
-          <input type="password" name="passwords[old]" placeholder="oldpassword">
-          <input type="password" name="passwords[new]" placeholder="newpassword">
-          <input type="submit" value="change password">
-        </form>
-        <form id="sign-out">
-          <input type="submit" value="sign out">
-        </form>
        <!-- <h2>Create Game</h2>  -->
-        <button id="create-game">new game</button>
+        <button class="btn btn-outline-success" id="create-game">new game</button>
 
-        <button id="stats">get game</button>
+        <button class="btn btn-outline-info" id="stats">stats</button>
 
         <h3 class="stats-display"></h3>
 
