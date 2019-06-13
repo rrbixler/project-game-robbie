@@ -3,6 +3,11 @@
 body {
   background-color: darkSlateGray;
   font-family: 'Heebo', sans-serif;
+  background: linear-gradient(to bottom, #353A3F,  75%, #369DA1);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1{
