@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Robbie's Game</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Heebo:100,400" rel="stylesheet">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">
+    <h1>tic tac toe</h1>
+  </a>
+
+<li class="nav-item">
+  <div class="form-inline">
+    <form id="sign-in">
+      <input type="email" class="form-control" name="credentials[email]" placeholder="email" required>
+      <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+      <input type="submit" class="btn btn-outline-warning" value="sign in">
+    </form>
+  </div>
+</li>
+
+<li class="nav-item mr">
+  <div class="form-inline">
+    <form id="sign-up">
+      <input type="email" class="form-control" name="credentials[email]" placeholder="email" required>
+      <input type="password" class="form-control" name="credentials[password]" placeholder="password">
+      <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="password confirmation">
+      <input class="btn btn-outline-warning" type="submit" value="sign up">
+    </form>
+  </div>
+</li>
+
+<li class="nav-item">
+  <div class="form-inline">
+    <form id="change-password">
+      <input type="password" class="form-control" name="passwords[old]" placeholder="oldpassword">
+      <input type="password" class="form-control" name="passwords[new]" placeholder="newpassword">
+      <input type="submit" class="btn btn-outline-warning" value="change password">
+    </form>
+  </div>
+</li>
+
+<li class="nav-item">
+  <form id="sign-out">
+    <input type="submit" class="btn btn-outline-secondary mr-auto" value="sign out">
+  </form>
+</li>
+</nav>
+      <div class="messages"></div>
+
+
+       <!-- <h2>Create Game</h2>  -->
+        <button class="btn btn-outline-success" id="create-game">new game</button>
+
+        <button class="btn btn-outline-info" id="stats">stats</button>
+
+        <h3 class="stats-display"></h3>
+
+        <h3 class="score-display"></h3>
+
+        <h3 class="player-indicator"></h3>
+
+          <div class="container gameboard">
+            <div class="row">
+              <div class="col-3 gamebox row1" id="one" data-id='0'></div>
+              <div class="col-3 gamebox row1" id="two" data-id='1'></div>
+              <div class="col-3 gamebox row1" id="three" data-id='2'></div>
+            </div>
+            <div class="row">
+              <div class="col-3 gamebox row2" id="four" data-id='3'></div>
+              <div class="col-3 gamebox row2" id="five" data-id='4'></div>
+              <div class="col-3 gamebox row2" id="six" data-id='5'></div>
+            </div>
+            <div class="row">
+              <div class="col-3 gamebox" id="seven" data-id='6'></div>
+              <div class="col-3 gamebox" id="eight" data-id='7'></div>
+              <div class="col-3 gamebox" id="nine" data-id='8'></div>
+            </div>
+          </div>
+          <!-- <h2>Reset Game!</h2>
+            <button id="reset-game">Reset Game</button> -->
+            <!-- <form id="create-game"> -->
+            <!-- </form> -->
+
+<!--use this for email and sign on  -->
+
+
+    </body>
+</html>
